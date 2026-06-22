@@ -1,46 +1,47 @@
-Projet : Système de Prévision et d'Alerte Agricole (Climate-Yield Predictor)
+🌾 Agripredict: Système de Prévision de Rendement Agricole
 
-Ce projet vise à modéliser et prédire le rendement des cultures agricoles en utilisant des données climatiques historiques. En combinant l'apprentissage automatique (Machine Learning) et l'ingénierie de données climatiques, le système fournit une estimation du rendement par culture, permettant d'anticiper les risques climatiques.
-🚀 Fonctionnalités principales
+Agripredict est une plateforme d'intelligence artificielle conçue pour aider les agriculteurs et les décideurs à anticiper les rendements des cultures. Basé sur l'analyse climatique et historique, le système propose des prévisions de rendement personnalisées par culture.
+🌟 Fonctionnalités
 
-    Modélisation multi-cultures : Entraînement de modèles spécialisés pour 93 types de cultures.
+    Moteur de prédiction multi-cultures : Plus de 90 modèles d'apprentissage automatique (Random Forest) spécialisés par type de culture.
 
-    Ingénierie de données climatiques : Calcul de déviations climatiques (Température, Précipitations) pour capturer l'impact des anomalies sur les récoltes.
+    Analyse climatique avancée : Utilisation de l'ingénierie des données (déviations climatiques, variables de décalage temporel) pour une meilleure précision.
 
-    Mémoire temporelle : Intégration de variables de décalage (Lag Features) pour prendre en compte l'impact des conditions climatiques de l'année précédente.
+    Interface web robuste : Application développée avec le framework Django, garantissant sécurité et évolutivité.
 
-    Système d'alerte : Capacité à projeter le rendement futur sur la base de prévisions météorologiques.
+    Architecture MVT : Séparation claire entre la logique de calcul (ML), la gestion des données et l'interface utilisateur.
 
-🛠 Architecture Technique
+🛠 Stack Technique
 
-    Langage : Python
+    Backend : Python, Django
 
-    Bibliothèques principales : pandas, scikit-learn, joblib
+    Machine Learning : scikit-learn, pandas, joblib
 
-    Algorithme : RandomForestRegressor (optimisé avec n_estimators=200, max_depth=10)
+    Frontend : HTML5, CSS3, JavaScript
 
-📊 Performance
+    Base de données : SQLite (développement) / PostgreSQL (production)
 
-Le modèle a été validé sur un score R2 permettant d'expliquer les variations de rendement dues aux facteurs environnementaux. Le système privilégie la généralisation pour éviter le surapprentissage.
-📂 Structure du projet
-├── data/                   # Données brutes et traitées
-├── modeles_cultures/       # Modèles entraînés (format .joblib)
-├── notebooks/
-│   ├── 01_exploration.ipynb
-│   ├── 02_nettoyage.ipynb
-│   └── 03_entrainement_modele.ipynb
+📊 Performance du modèle
+
+Le système a été optimisé pour éviter le surapprentissage (overfitting) en intégrant des variables de décalage temporel (Last_Year_Features), permettant d'expliquer les variations saisonnières avec une robustesse accrue.
+
+🏗 Architecture du projet
+
+
+```text
+agripredict/
+├── manage.py
+├── core/                   # Configuration Django (settings, urls)
+├── prediction_app/         # Logique métier et vues
+│   ├── ml_models/          # Stockage des modèles (.joblib)
+│   ├── views.py            # Logique de prédiction
+│   └── templates/          # Interface HTML/CSS
+├── notebooks/              # Documentation et expérimentations
 └── README.md
 
-📈 Analyse des facteurs influents
 
-Les résultats démontrent que la déviation de la température est le facteur prédictif le plus déterminant pour la productivité agricole.
-💡 Utilisation
+📈 Analyse des données
 
-Pour tester le système avec une nouvelle culture :
-Python
+Le système identifie la température (Temp_Deviation) comme le facteur critique influençant la majorité des cultures, confirmant l'importance du stress thermique dans les prévisions agricoles.
 
-# Exemple de prédiction
-resultat = predire_rendement_pour_culture(item_code=38, temp_dev=2.0, ...)
-print(resultat)
-
-Développé dans le cadre d'un projet de Data Science appliquée à l'agronomie.
+Projet développé avec passion pour l'agriculture intelligente.
