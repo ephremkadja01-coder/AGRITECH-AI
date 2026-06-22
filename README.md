@@ -23,8 +23,6 @@ Ce projet vise à modéliser et prédire le rendement des cultures agricoles en 
 
 Le modèle a été validé sur un score R2 permettant d'expliquer les variations de rendement dues aux facteurs environnementaux. Le système privilégie la généralisation pour éviter le surapprentissage.
 📂 Structure du projet
-Plaintext
-
 ├── data/                   # Données brutes et traitées
 ├── modeles_cultures/       # Modèles entraînés (format .joblib)
 ├── notebooks/
